@@ -1,0 +1,341 @@
+﻿<Window x:Class="CardController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CardController"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Card 1 Label Voltage/Temp-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Content="Card 1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="25"/>
+            <TextBox x:Name="card1Voltage" Grid.Column="0" Text="Voltage : 12.5"/>
+            <TextBox x:Name="card1Temp" Grid.Column="2" Text="Temp : 12.5"/>
+        </Grid>
+        <!--Card 1 Channel 1-->
+        <Grid Grid.Row="3" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card1Ch1Status" Content="CH-1" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_24">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_25">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_26">-E0-</Button>
+                <TextBlock x:Name="card1Ch1Curr" Text="{Binding c1Curr[0], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 1 Channel 2-->
+        <Grid Grid.Row="5" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card1Ch2Status" Content="CH-2" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_1">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_27">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_28">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_29">-E0-</Button>
+                <TextBlock x:Name="card1Ch2Curr" Text="{Binding c1Curr[1], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 1 Channel 3-->
+        <Grid Grid.Row="7" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card1Ch3Status" Content="CH-3" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_2">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_30">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_31">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_32">-E0-</Button>
+                <TextBlock x:Name="card1Ch3Curr" Text="{Binding c1Curr[2], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 1 Channel 4-->
+        <Grid Grid.Row="9" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card1Ch4Status" Content="CH-4" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_3">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_33">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_34">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_35">-E0-</Button>
+                <TextBlock x:Name="card1Ch4Curr" Text="{Binding c1Curr[3], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 1 Channel 5-->
+        <Grid Grid.Row="11" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card1Ch5Status" Content="CH-5" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_4">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_36">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_37">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_38">-E0-</Button>
+                <TextBlock x:Name="card1Ch5Curr" Text="{Binding c1Curr[4], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 1 Channel 6-->
+        <Grid Grid.Row="13" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card1Ch6Status" Content="CH-6" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_5">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_39">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_40">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_41">-E0-</Button>
+                <TextBlock x:Name="card1Ch6Curr" Text="{Binding c1Curr[5], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 1 Channel 7-->
+        <Grid Grid.Row="15" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card1Ch7Status" Content="CH-7" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_6">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_42">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_43">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_44">-E0-</Button>
+                <TextBlock x:Name="card1Ch7Curr" Text="{Binding c1Curr[6], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 1 Channel 8-->
+        <Grid Grid.Row="17" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card1Ch8Status" Content="CH-8" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_7">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_45">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_46">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_47">-E0-</Button>
+                <TextBlock x:Name="card1Ch8Curr" Text="{Binding c1Curr[7], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <!--Card 2 Label Voltage/Temp-->
+        <Grid Grid.Row="1" Grid.Column="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Content="Card 2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="25"/>
+            <TextBox x:Name="card2Voltage" Grid.Column="0" Text="Voltage : 12.5"/>
+            <TextBox x:Name="card2Temp" Grid.Column="2" Text="Temp : 12.5"/>
+        </Grid>
+        <!--Card 2 Channel 1-->
+        <Grid Grid.Row="3" Grid.Column="3">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card2Ch1Status" Content="CH-1" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_8">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_48">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_49">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_50">-E0-</Button>
+                <TextBlock x:Name="card2Ch1Curr" Text="{Binding c2Curr[0], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 2 Channel 2-->
+        <Grid Grid.Row="5" Grid.Column="3">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card2Ch2Status" Content="CH-2" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_9">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_51">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_52">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_53">-E0-</Button>
+                <TextBlock x:Name="card2Ch2Curr" Text="{Binding c2Curr[1], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 2 Channel 3-->
+        <Grid Grid.Row="7" Grid.Column="3">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card2Ch3Status" Content="CH-3" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_10">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_54">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_55">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_56">-E0-</Button>
+                <TextBlock x:Name="card2Ch3Curr" Text="{Binding c2Curr[2], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 2 Channel 4-->
+        <Grid Grid.Row="9" Grid.Column="3">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card2Ch4Status" Content="CH-4" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_11">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_57">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_58">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_59">-E0-</Button>
+                <TextBlock x:Name="card2Ch4Curr" Text="{Binding c2Curr[3], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 2 Channel 5-->
+        <Grid Grid.Row="11" Grid.Column="3">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card2Ch5Status" Content="CH-5" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_12">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_60">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_61">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_62">-E0-</Button>
+                <TextBlock x:Name="card2Ch5Curr" Text="{Binding c2Curr[4], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 2 Channel 6-->
+        <Grid Grid.Row="13" Grid.Column="3">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card2Ch6Status" Content="CH-6" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_13">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_63">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_64">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_65">-E0-</Button>
+                <TextBlock x:Name="card2Ch6Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 2 Channel 7-->
+        <Grid Grid.Row="15" Grid.Column="3">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card2Ch7Status" Content="CH-7" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_14">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_66">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_67">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_68">-E0-</Button>
+                <TextBlock x:Name="card2Ch7Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 2 Channel 8-->
+        <Grid Grid.Row="17" Grid.Column="3">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card2Ch8Status" Content="CH-8" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_15">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_69">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_70">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_71">-E0-</Button>
+                <TextBlock x:Name="card2Ch8Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <!--Card 3 Label Voltage/Temp-->
+        <Grid Grid.Row="1" Grid.Column="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Content="Card 3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="25"/>
+            <TextBox x:Name="card3Voltage" Grid.Column="0" Text="Voltage : 12.5"/>
+            <TextBox x:Name="card3Temp" Grid.Column="2" Text="Temp : 12.5"/>
+        </Grid>
+        <!--Card 3 Channel 1-->
+        <Grid Grid.Row="3" Grid.Column="5">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card3Ch1Status" Content="CH-1" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_16">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_72">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_73">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_74">-E0-</Button>
+                <TextBlock x:Name="card3Ch1Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 3 Channel 2-->
+        <Grid Grid.Row="5" Grid.Column="5">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card3Ch2Status" Content="CH-2" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_17">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_75">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_76">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_77">-E0-</Button>
+                <TextBlock x:Name="card3Ch2Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 3 Channel 3-->
+        <Grid Grid.Row="7" Grid.Column="5">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card3Ch3Status" Content="CH-3" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_18">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_78">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_79">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_80">-E0-</Button>
+                <TextBlock x:Name="card3Ch3Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 3 Channel 4-->
+        <Grid Grid.Row="9" Grid.Column="5">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card3Ch4Status" Content="CH-4" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_19">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_81">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_82">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_83">-E0-</Button>
+                <TextBlock x:Name="card3Ch4Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 3 Channel 5-->
+        <Grid Grid.Row="11" Grid.Column="5">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card3Ch5Status" Content="CH-5" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_20">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_84">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_85">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_86">-E0-</Button>
+                <TextBlock x:Name="card3Ch5Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 3 Channel 6-->
+        <Grid Grid.Row="13" Grid.Column="5">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card3Ch6Status" Content="CH-6" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_21">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_87">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_88">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_89">-E0-</Button>
+                <TextBlock x:Name="card3Ch6Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 3 Channel 7-->
+        <Grid Grid.Row="15" Grid.Column="5">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card3Ch7Status" Content="CH-7" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_22">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_90">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_91">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_92">-E0-</Button>
+                <TextBlock x:Name="card3Ch7Curr" Text="Curr : 12.5" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--Card 3 Channel 8-->
+        <Grid Grid.Row="17" Grid.Column="5">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="card3Ch8Status" Content="CH-8" VerticalContentAlignment="Center" Background="Green"/>
+                <Button Click="Button_Click_23">Open/Close</Button>
+                <Button Background="LightBlue" Click="Button_Click_93">-E2-</Button>
+                <Button Background="LightBlue" Click="Button_Click_94">-E1-</Button>
+                <Button Background="LightBlue" Click="Button_Click_95">-E0-</Button>
+                <TextBlock x:Name="card3Ch8Curr" Text="{Binding }" MinWidth="60" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
