@@ -745,12 +745,17 @@ namespace CardController
             result [index++] = temp1 [2];
             result [index++] = temp1 [3];
 
+            // TODO: Calculate Card1 channel currents
+
             //Card2 Voltage
             byte [] temp2 = CalculateDoubleTo4Byte( card2Voltage );
             result [index++] = temp2 [0];
             result [index++] = temp2 [1];
             result [index++] = temp2 [2];
             result [index++] = temp2 [3];
+
+            // TODO: Calculate Card2 channel currents
+
             //Card3 Voltage
             byte [] temp3 = CalculateDoubleTo4Byte( card3Voltage );
             result [index++] = temp3 [0];
@@ -758,6 +763,7 @@ namespace CardController
             result [index++] = temp3 [2];
             result [index++] = temp3 [3];
 
+            // TODO: Calculate Card3 channel currents
 
             //checksum
             result [index++] = (byte)0x30;
@@ -767,9 +773,70 @@ namespace CardController
             return result;
         }
 
-        public static byte [] CalculateCardErrorInspectionResponse ()
+        public static byte [] CalculateCardErrorInspectionResponse ( int [] c1Channels, int [] c2Channels, int [] c3Channels)
         {
             byte [] result = new byte [56];
+            int index = 0;
+            result [index++] = (byte)EnumCommunicationParameters.Stx;
+            result [index++] = (byte)EnumCommunicationParameters.Id;
+            result [index++] = (byte)EnumCommunicationParameters.CardErrorInspection;
+            result [index++] = (byte)0x33;
+            result [index++] = (byte)0x30;
+
+            result [index++] = (byte)0x30;
+            result [index++] = ( c1Channels [0] == 128 ) ? Convert.ToByte( c1Channels [0] ) : (byte)Encoding.ASCII.GetBytes( c1Channels [0].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c1Channels [1] == 128 ) ? Convert.ToByte( c1Channels [1] ) : (byte)Encoding.ASCII.GetBytes( c1Channels [1].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c1Channels [2] == 128 ) ? Convert.ToByte( c1Channels [2] ) : (byte)Encoding.ASCII.GetBytes( c1Channels [2].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c1Channels [3] == 128 ) ? Convert.ToByte( c1Channels [3] ) : (byte)Encoding.ASCII.GetBytes( c1Channels [3].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c1Channels [4] == 128 ) ? Convert.ToByte( c1Channels [4] ) : (byte)Encoding.ASCII.GetBytes( c1Channels [4].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c1Channels [5] == 128 ) ? Convert.ToByte( c1Channels [5] ) : (byte)Encoding.ASCII.GetBytes( c1Channels [5].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c1Channels [6] == 128 ) ? Convert.ToByte( c1Channels [6] ) : (byte)Encoding.ASCII.GetBytes( c1Channels [6].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c1Channels [7] == 128 ) ? Convert.ToByte( c1Channels [7] ) : (byte)Encoding.ASCII.GetBytes( c1Channels [7].ToString() ) [0];
+
+            result [index++] = (byte)0x30;
+            result [index++] = ( c2Channels [0] == 128 ) ? Convert.ToByte( c2Channels [0] ) : (byte)Encoding.ASCII.GetBytes( c2Channels [0].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c2Channels [1] == 128 ) ? Convert.ToByte( c2Channels [1] ) : (byte)Encoding.ASCII.GetBytes( c2Channels [1].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c2Channels [2] == 128 ) ? Convert.ToByte( c2Channels [2] ) : (byte)Encoding.ASCII.GetBytes( c2Channels [2].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c2Channels [3] == 128 ) ? Convert.ToByte( c2Channels [3] ) : (byte)Encoding.ASCII.GetBytes( c2Channels [3].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c2Channels [4] == 128 ) ? Convert.ToByte( c2Channels [4] ) : (byte)Encoding.ASCII.GetBytes( c2Channels [4].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c2Channels [5] == 128 ) ? Convert.ToByte( c2Channels [5] ) : (byte)Encoding.ASCII.GetBytes( c2Channels [5].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c2Channels [6] == 128 ) ? Convert.ToByte( c2Channels [6] ) : (byte)Encoding.ASCII.GetBytes( c2Channels [6].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c2Channels [7] == 128 ) ? Convert.ToByte( c2Channels [7] ) : (byte)Encoding.ASCII.GetBytes( c2Channels [7].ToString() ) [0];
+
+            result [index++] = (byte)0x30;
+            result [index++] = ( c3Channels [0] == 128 ) ? Convert.ToByte( c3Channels [0] ) : (byte)Encoding.ASCII.GetBytes( c3Channels [0].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c3Channels [1] == 128 ) ? Convert.ToByte( c3Channels [1] ) : (byte)Encoding.ASCII.GetBytes( c3Channels [1].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c3Channels [2] == 128 ) ? Convert.ToByte( c3Channels [2] ) : (byte)Encoding.ASCII.GetBytes( c3Channels [2].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c3Channels [3] == 128 ) ? Convert.ToByte( c3Channels [3] ) : (byte)Encoding.ASCII.GetBytes( c3Channels [3].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c3Channels [4] == 128 ) ? Convert.ToByte( c3Channels [4] ) : (byte)Encoding.ASCII.GetBytes( c3Channels [4].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c3Channels [5] == 128 ) ? Convert.ToByte( c3Channels [5] ) : (byte)Encoding.ASCII.GetBytes( c3Channels [5].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c3Channels [6] == 128 ) ? Convert.ToByte( c3Channels [6] ) : (byte)Encoding.ASCII.GetBytes( c3Channels [6].ToString() ) [0];
+            result [index++] = (byte)0x30;
+            result [index++] = ( c3Channels [7] == 128 ) ? Convert.ToByte( c3Channels [7] ) : (byte)Encoding.ASCII.GetBytes( c3Channels [7].ToString() ) [0];
+
+            result [index++] = (byte)0x30;
+            result [index++] = (byte)0x30;
+            result [index++] = (byte)EnumCommunicationParameters.Etx;
 
             return result;
         }
